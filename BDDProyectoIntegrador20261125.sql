@@ -8,8 +8,8 @@ GO
 --Creación Tabla Liga -- 
 CREATE TABLE Liga
 (
-idLiga INT NOT NULL IDENTITY(1,1),
-nombreLiga VARCHAR(30) UNIQUE
+idLiga INT IDENTITY(1,1) NOT NULL,
+nombreLiga VARCHAR(30) UNIQUE NOT NULL
 );
 GO
 
@@ -31,6 +31,7 @@ GO
 ALTER TABLE Grupo 
 ADD CONSTRAINT PK_Grupo_idGrupo
 PRIMARY KEY (idGrupo);
+GO
 
 -- Creación Tabla Fase --
 CREATE TABLE Fase
@@ -66,15 +67,16 @@ CREATE TABLE Arbitro
 (
 idArbitro INT IDENTITY(1,1) NOT NULL, 
 pasaporte VARCHAR(10) NOT NULL UNIQUE,
-Nombre1Arbitro NVARCHAR(20) NOT NULL, 
-Nombre2Arbitro NVARCHAR(20),
-apellidoPaterno NVARCHAR(25) NOT NULL,
-apellidoMaterno NVARCHAR(25), 
+nombre1Arbitro NVARCHAR(20) NOT NULL, 
+nombre2Arbitro NVARCHAR(20),
+apellido1Arbitro NVARCHAR(25) NOT NULL,
+apellido2Arbitro NVARCHAR(25), 
 pais NVARCHAR(20) NOT NULL, 
 anioInicio INT,
 idArbitroSupervisor INT,
 idArbitroReemplazo INT
-)
+);
+GO
 
 -- Clave Primaria --
 ALTER TABLE Arbitro 
@@ -86,9 +88,11 @@ GO
 ALTER TABLE Arbitro
 ADD CONSTRAINT FK_Arbitro_idArbitro_idArbitroSupervisor
 FOREIGN KEY (idArbitroSupervisor) REFERENCES Arbitro(idArbitro);
+GO
 
 ALTER TABLE Arbitro
 ADD CONSTRAINT FK_Arbitro_idArbitro_idArbitroReemplazo
 FOREIGN KEY (idArbitroReemplazo) REFERENCES Arbitro(idArbitro);
+GO
 
----PRUEBAAAAAAAAAAAAAAA
+
