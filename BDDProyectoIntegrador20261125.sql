@@ -90,3 +90,5 @@ FOREIGN KEY (idArbitroSupervisor) REFERENCES Arbitro(idArbitro);
 ALTER TABLE Arbitro
 ADD CONSTRAINT FK_Arbitro_idArbitro_idArbitroReemplazo
 FOREIGN KEY (idArbitroReemplazo) REFERENCES Arbitro(idArbitro);
+
+---PRUEBAAAAAAAAAAAAAAA
